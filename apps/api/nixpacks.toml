@@ -1,0 +1,6 @@
+[phases.setup]
+nixPkgs = ["python312", "gcc"]
+aptPkgs = ["build-essential"]
+
+[phases.install]
+cmds = ["pip install uv"]

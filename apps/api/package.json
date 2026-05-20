@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "uv run uvicorn diorama_api.main:app --reload --port 8000",
+    "build": "uv sync --frozen",
+    "lint": "uv run ruff check src tests",
+    "typecheck": "uv run ruff check src tests",
+    "test": "uv run pytest"
+  }
+}

@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: diorama
+      POSTGRES_PASSWORD: diorama
+      POSTGRES_DB: diorama
+    ports:
+      - "5432:5432"
+    volumes:
+      - diorama-db:/var/lib/postgresql/data
+
+volumes:
+  diorama-db:
