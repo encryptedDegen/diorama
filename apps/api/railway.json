@@ -3,11 +3,11 @@
   "build": {
     "builder": "NIXPACKS",
     "nixpacksConfigPath": "apps/api/nixpacks.toml",
-    "buildCommand": "cd apps/api && uv sync --frozen && PYTHONPATH=src uv run alembic upgrade head",
+    "buildCommand": "cd apps/api && uv sync --frozen",
     "watchPatterns": ["apps/api/**", "packages/types/**"]
   },
   "deploy": {
-    "startCommand": "cd apps/api && PYTHONPATH=src uv run uvicorn diorama_api.main:app --host 0.0.0.0 --port $PORT",
+    "startCommand": "cd apps/api && PYTHONPATH=src uv run alembic upgrade head && PYTHONPATH=src uv run uvicorn diorama_api.main:app --host 0.0.0.0 --port $PORT",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 30,
     "restartPolicyType": "ON_FAILURE",
